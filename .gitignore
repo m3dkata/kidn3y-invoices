@@ -3,3 +3,5 @@ package-lock.json
 /dist
 db.sqlite3
 assets/fonts/.DS_Store
+db.sqlite3-wal
+db.sqlite3-shm
