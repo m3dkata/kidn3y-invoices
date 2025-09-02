@@ -1,0 +1,47 @@
+{
+  "name": "kidn3y-inv",
+  "version": "1.0.0",
+  "main": "main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build-win32": "electron-builder --win --ia32",
+    "build-win64": "electron-builder --win --x64",
+    "postinstall": "electron-builder install-app-deps",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "build": {
+    "appId": "com.kidn3y.invoice",
+    "productName": "ФактуриBG",
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "asar": false,
+    "asarUnpack": [
+      "node_modules/**/*"
+    ],
+    "files": [
+      "**/*",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "node_modules/**/*"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "electron": "^11.5.0",
+    "electron-builder": "^25.1.8",
+    "electron-rebuild": "^3.2.9"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "call-bind": "^1.0.8",
+    "exceljs": "^4.4.0",
+    "pdfkit": "^0.12.3",
+    "qrcode": "^1.5.4",
+    "sqlite3": "^5.1.7",
+    "xlsx": "^0.17.5"
+  }
+}

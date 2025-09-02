@@ -1,0 +1,400 @@
+:root {
+    --primary-color: #0e354d;
+    --secondary-color: #34495e;
+    --accent-color: #0e354d;
+    --text-color: #ecf0f1;
+    --sidebar-width: 250px;
+    --success-color: #2ecc71;
+    --danger-color: #e74c3c;
+    --warning-color: #f1c40f;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f6fa;
+  }
+  
+  .container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    width: var(--sidebar-width);
+    background: var(--primary-color);
+    color: var(--text-color);
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 100;
+  }
+  
+  .logo {
+    padding: 20px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .nav-item {
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .nav-item:hover {
+    background: var(--secondary-color);
+  }
+  
+  .data-grid {
+    margin-top: 5px; /* Add some space after the sticky header */
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 10px;
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    min-height: 100vh;
+  }
+  
+  .section {
+    /* background: white;
+    border-radius: 8px; */
+
+    padding: 10px;
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
+    margin-bottom: 20px;
+    padding-top: 80px;
+    /* overflow: hidden; */
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100% - var(--sidebar-width) - 20px);
+    background: white;
+    z-index: 99;
+    padding: 10px 20px;
+    margin: -20px -20px 20px -20px;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  button {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.2s;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  .data-grid {
+    display: grid;
+    gap: 10px;
+  }
+  
+  .data-grid-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 4px;
+  }
+  
+  .item-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-btn {
+    background: var(--success-color);
+  }
+  
+  .delete-btn {
+    background: var(--danger-color);
+    margin: 2px;
+  }
+  
+  .print-btn {
+    background: var(--warning-color);
+  }
+
+  .download-btn {
+    background: var(--success-color);
+    display: none;
+  }
+  
+  .settings-button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .settings-button:hover {
+    background: var(--secondary-color);
+    border-radius: 4px;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .modal input, .modal select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .invoice-products {
+    margin: 15px 0;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .product-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .notification {
+    position: fixed;
+    background: #8b4c4c;
+    font-size: 1.2rem;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px;
+    border-radius: 4px;
+    color: white;
+    z-index: 1001;
+    animation: slideIn 0.3s ease-out;
+    /* margin-left: var(--sidebar-width); */
+  }
+  
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Add this to your existing styles.css file */
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+.invoice-table th, 
+.invoice-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.invoice-table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.invoice-row:hover {
+  background-color: #f5f5f5;
+}
+
+.expand-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #e42c2c;
+}
+
+.expand-btn:hover {
+  color: #0e354d;
+}
+
+.invoice-details {
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.details-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.details-table th,
+.details-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.details-table th {
+  background-color: #e9ecef;
+  font-weight: bold;
+}
+
+.action-buttons button {
+  background: none;
+  border: 1px solid #0e354d;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+  color: #0e354d;
+}
+
+.action-buttons :hover {
+  background: #0e354d;
+  color: #ffffff;
+}
+
+/* .action-buttons .print-btn:hover {
+  background: #0e354d;
+  color: #28a745;
+}
+
+.action-buttons .download-btn:hover {
+  background: #0e354d;
+  color: #0e354d;
+}
+
+.action-buttons .delete-btn:hover {
+  background: #0e354d;
+  color: #dc3545;
+} */
+
+.backup-button {
+  position: absolute;
+  bottom: 28px;
+  left: 200px; /* Position it to the right of settings button */
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.backup-button:hover {
+  background-color: #f5b14c;
+  transform: scale(1.05);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.backup-button::after {
+  content: "Бекъп на базата";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.backup-button:hover::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+.backup-button i {
+  font-size: 18px;
+}
+
+.product-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.action-btn.edit-btn:hover {
+  border: 1px solid #008000;
+  background-color: rgba(0, 128, 0, 0.05);
+}
+
+.action-btn.delete-btn:hover {
+  border: 1px solid #cc0000;
+  background-color: rgba(204, 0, 0, 0.05);
+}

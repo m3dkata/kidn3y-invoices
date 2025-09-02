@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <title>ФактуриBG</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="logo">
+        <img src="../assets/trans.png" width="70" height="70" />
+        <span>ФактуриBG</span>
+      </div>
+      <nav>
+        <ul>
+          <li class="nav-item" onclick="showSection('invoices')">
+            <i class="fas fa-file-invoice-dollar"></i>
+            <span>Фактури</span>
+          </li>
+          <li class="nav-item" onclick="showSection('products')">
+            <i class="fas fa-box"></i>
+            <span>Продукти</span>
+          </li>
+          <li class="nav-item" onclick="showSection('customers')">
+            <i class="fas fa-users"></i>
+            <span>Клиенти</span>
+          </li>
+        </ul>
+      </nav>
+      <div class="settings-button" onclick="showCompanySettings()">
+        <i class="fas fa-cog"></i>
+        <span>Настройки</span>
+      </div>
+      <div class="backup-button" onclick="backupDatabase()">
+        <i class="fas fa-database"></i>
+      </div>
+    </div>
+    <div class="main-content">
+      <div id="invoices" class="section">
+        <div class="section-header">
+          <h2>Фактури</h2>
+          <div class="action-buttons">
+            <button onclick="exportInvoicesToExcel()"><i class="fas fa-file-excel"></i> Експорт</button>
+            <button onclick="showCreateInvoiceForm()"><i class="fas fa-plus"></i> Нова Фактура</button>
+          </div>
+        </div>
+        <div id="invoice-list" class="data-grid"></div>
+      </div>
+      <div id="products" class="section" style="display: none;">
+        <div class="section-header">
+          <h2>Продукти</h2>
+          <div class="action-buttons">
+            <button onclick="exportProductsToExcel()"><i class="fas fa-file-excel"></i> Експорт</button>
+            <button onclick="showCreateProductForm()"><i class="fas fa-plus"></i> Нов Продукт</button>
+          </div>
+        </div>
+        <div id="product-list" class="data-grid"></div>
+      </div>
+      <div id="customers" class="section" style="display: none;">
+        <div class="section-header">
+          <h2>Клиенти</h2>
+          <div class="action-buttons">
+            <button onclick="exportCustomersToExcel()"><i class="fas fa-file-excel"></i> Експорт</button>
+            <button onclick="showCreateCustomerForm()"><i class="fas fa-plus"></i> Нов Клиент</button>
+          </div>
+        </div>
+        <div id="customer-list" class="data-grid"></div>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

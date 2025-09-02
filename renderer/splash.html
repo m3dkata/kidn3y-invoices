@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Зареждане...</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: none;
+      overflow: hidden;
+    }
+    .splash-container {
+      background-color: #0e354d;
+      border-radius: 20px;
+      text-align: center;
+    }
+    .splash-image {
+      border-radius: 20px;
+      width: 256px;
+      height: 256px;
+      animation: pulse 1.5s infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(0.95); opacity: 0.8; }
+      to { transform: scale(1.05); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="splash-container">
+    <img src="../assets/trans.png" class="splash-image" alt="Зареждане...">
+  </div>
+</body>
+</html>
